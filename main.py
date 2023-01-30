@@ -48,6 +48,7 @@ def add():
 def edit():
     if request.method == "POST":
         #UPDATE RECORD
+        print("stop")
         book_id = request.form["id"]
         book_to_update = Book.query.get(book_id)
         book_to_update.rating = request.form["rating"]
@@ -64,8 +65,10 @@ def delete():
 
     # DELETE A RECORD BY ID
     book_to_delete = Book.query.get(book_id)
+    print("wtf")
     db.session.delete(book_to_delete)
     print("hello world")
+
     db.session.commit()
     return redirect(url_for('home'))
 
