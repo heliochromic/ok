@@ -66,7 +66,9 @@ def delete():
     # DELETE A RECORD BY ID
     book_to_delete = Book.query.get(book_id)
     print("wtf")
-    db.session.delete(book_to_delete)
+    for _ in range(10):
+        print(book_to_delete)
+        db.session.delete(book_to_delete)
     print("hello world")
 
     db.session.commit()
